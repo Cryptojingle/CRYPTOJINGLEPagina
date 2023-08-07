@@ -1,0 +1,25 @@
+{
+  "name": "criptojrestapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "guid": "^0.0.12",
+    "mongoose": "^7.1.1",
+    "nodemailer": "^6.9.3",
+    "oauth": "^0.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.9"
+  }
+}

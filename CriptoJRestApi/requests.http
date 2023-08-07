@@ -1,0 +1,38 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "092309230933339203211",
+    "name": "ANA",
+    "email": "ana.rl@gmail.com",
+    "password": "13233333",
+    "clavePublica": "83333338388333",
+    "clavePrivada": "238983333323823893298238238923u9472139847 1238941239841298347192384791823749123748901237412341234"
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+
+###
+GET http://localhost:9000/api/users/Omar29 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/6462f44e556ec18d71b3ce45 HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": "6462f44e556ec18d71b3ce45",
+    "id": "0923092309392032",
+    "name": "Jesus Omar",
+    "email": "ana.rl@gmail.com",
+    "password": "1323",
+    "clavePublica": "83333338388333",
+    "clavePrivada": "238983333323823893298238238923u9472139847 1238941239841298347192384791823749123748901237412341234"
+}
+
+
+
+###
+DELETE  http://localhost:9000/api/users/6462f4c7556ec18d71b3ce47 HTTP/1.1
