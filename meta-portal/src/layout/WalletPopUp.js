@@ -6,13 +6,21 @@ import { Keypair, LAMPORTS_PER_SOL, Connection } from "@solana/web3.js";
 import React from 'react';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import decodeJwt from "../utils/decodeJwt";
+import { ethers } from "ethers";
+import HDWalletProvider from '@truffle/hdwallet-provider';
 
+import TwitterLogin from 'react-twitter-login';
+import TwitterLoginButton from "../utils/TwitterLogin";
+// import { MetaMaskProvider } from "metamask-react";
+// import { MetaMaskSDK } from '@metamask/sdk';
 //npm install @react-oauth/google
 //import { GoogleLogin } from 'react-google-login';
 //npm install google-auth-library --save --force
+//npm i react-twitter-login --force
 //npm install react-google-login
-
-
+//npm install metamask-react --force
+//
+//twitter
 //bearer token
 //AAAAAAAAAAAAAAAAAAAAAIs1oQEAAAAAVvpkpEHrU8cocsfnaLtz1Chfz%2FQ%3DaaA2VRtNoZ7rCMF1cZb4VuljlhcUSvvdrZUnAjsNbGcwxyeDJj
 
@@ -30,6 +38,7 @@ const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
 //         6LdBR58mAAAAAMxBPDm-yQTK-7g_1LgcaNPMCKtC
 
 
+
 // useEffect (() =>{
 //   const start = () => {
 //     gapi.auth2.init({
@@ -39,10 +48,12 @@ const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
 //   gapi.load("client:auth2", start)
 // },[]);
 //npm install react-google-recaptcha --force
-
-
+ 
 
 const WalletPopUp = ({ walletToggle, wallet }) => {
+  const API_URL = 'http://18.189.33.125/';
+  //const API_URL = 'http://ec2-52-14-120-83.us-east-2.compute.amazonaws.com';
+
   const [walletAddress, setWalletAddress] = useState('');
   const recaptchaRef = React.createRef();
   const captchaRef = useRef(null);
@@ -52,6 +63,8 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   const [frmMedias, setfrmMedias] = useState(true);
   const [frmJingler, setfrmJingler] = useState(false);
   const [frmGoogle, setfrmGoogle] = useState(false);
+  const [frmMeta, setfrmMeta] = useState(false);
+  const [frmTwitter, setfrmTwitter] = useState(false);
   const [imgLogin, setImgLogin] = useState('');
   const inputRef = useRef(null);
   const [tipoLogin, setTipoLogin] = useState('');
@@ -128,9 +141,13 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   let onChange = (value) => {
     console.log("Captcha value:", value);
   }
-  const [email, setEmail] = useState(''); 
-   
- 
+  const [email, setEmail] = useState('');
+
+  const responseTwitter = (response) => {
+    console.log(response);
+    // Handle the response from Twitter login
+  };
+
 
   async function onSuccess(credentialResponse) {
     console.log(credentialResponse);
@@ -187,14 +204,23 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   const handleGoogleIDClick = () => {
     setTipoLogin('GOOGLEID');
     setfrmMedias(false);
+    setfrmTwitter(false);
     setfrmGoogle(true);
   };
 
 
+  const handleTwitterIDClick = () => {
+    setfrmMedias(false);
+    setfrmGoogle(false);
+    setfrmTwitter(true);
+  };
+
   const handleClick = () => {
     let _frase = Bip39.generateMnemonic();
     setFrase(_frase);
-    navigator.clipboard.writeText(_frase);
+    if (window.isSecureContext && navigator.clipboard) {
+      navigator.clipboard.writeText(_frase);
+    }
     setbtnGenVisible(false);
     setfrmVisible(true);
   };
@@ -209,8 +235,10 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   };
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(frase);
-    alert('Texto copiado al portapapeles');
+    if (window.isSecureContext && navigator.clipboard) {
+      navigator.clipboard.writeText(frase);
+      alert('Texto copiado al portapapeles');
+    }
   };
 
 
@@ -223,7 +251,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
 
   const validarUsuario = (e) => {
 
-    fetch('http://localhost:9000/api/users/' + formData.id.toLocaleUpperCase(), {
+    fetch( API_URL+'/api/users/' + formData.id.toLocaleUpperCase(), {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -260,7 +288,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
 
     // recaptchaRef.current.reset();
     formData.tipo = tipoLogin;
-    fetch('http://localhost:9000/api/users', {
+    fetch(API_URL+'/api/users', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -329,7 +357,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
     formData.tipo = tipoLogin;
     console.log(formData);
 
-    fetch('http://localhost:9000/api/users', {
+    fetch(API_URL+'/api/users', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -367,6 +395,8 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
     setbtnGenVisible(false);
     setfrmVisible(false);
     setfrmGoogle(false);
+    setfrmTwitter(false);
+    setfrmMeta(false);
     walletToggle(false);
 
   }
@@ -401,6 +431,29 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
 
             )}
           </div>
+
+          <div className="btn">
+            <div>
+              {/* <img src={imgLogin} />*/}
+            </div>
+            {frmMeta && (
+
+              <div>
+                <span> <strong>Address: </strong>
+                  {data.address}
+                </span>
+
+                <span>
+                  <strong>Balance: </strong>
+                  {data.Balance}
+                </span>
+                <button onClick={btnhandler}>Connect to wallet</button>
+
+              </div>
+
+
+            )}
+          </div>
           {frmMedias && (
             <div className="walletbox">
 
@@ -421,6 +474,15 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                       <span className="text">Jingler ID</span>
                     </div>
                   </li>
+                  {/* <li>
+                    <div className="item">
+                      <a href="#" onClick={() => handleTwitterIDClick()} />
+                      <span className="icon">
+                        <img src="/img/wallet/coinbase.png" alt="" />
+                      </span>
+                      <span className="text">Twitter</span>
+                    </div>
+                  </li> */}
                   <li>
                     <div className="item">
                       <a href="#" onClick={() => handleGoogleIDClick()} />
@@ -458,7 +520,9 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                      
                         <p>
                           <textarea value={frase} readOnly style={textareaStyles} />
-                          <button onClick={handleCopyClick}>Copiar</button>
+                          { window.isSecureContext &&( 
+                              <button onClick={handleCopyClick}>Copiar</button>
+                          )}
                         </p>
                     </div>
 
