@@ -32,9 +32,10 @@ app.get('/', (req, res)=>{
 });
 
 // mongodb connection
+console.log(process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log('Connected to MongoDB Atlas'))
-.catch((error) => console.error('error'));
+.catch((error) => console.error('error'+ error));
 
 //POST route
 router.post("/post", async (req, res) => {
@@ -61,28 +62,4 @@ router.post("/post", async (req, res) => {
      }
   });
 
-
-  // router.post("/post", async (req, res) => {
-
-  //   ////Destructuring response token and input field value from request body
-  //   const { token, inputVal } = req.body;
-  
-  //   try {
-  //     // Sending secret key and response token to Google Recaptcha API for authentication.
-  //     const response = await axios.post(
-  //       `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.SECRET_KEY}&response=${token}`
-  //     );
-  
-  //     // Check response status and send back to the client-side
-  //     if (response.data.success) {
-  //       res.send("Human 👨 👩");
-  //     } else {
-  //       res.send("Robot 🤖");
-  //     }
-  //   } catch (error) {
-  //     // Handle any errors that occur during the reCAPTCHA verification process
-  //     console.error(error);
-  //     res.status(500).send("Error verifying reCAPTCHA");
-  //    }
-  // });
 app.listen(port, ()=> console.log('server listening on port', port));
