@@ -48,7 +48,6 @@ const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
 //   gapi.load("client:auth2", start)
 // },[]);
 //npm install react-google-recaptcha --force
- 
 
 const WalletPopUp = ({ walletToggle, wallet }) => {
   const API_URL = 'http://18.189.33.125/';
@@ -400,6 +399,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
     walletToggle(false);
 
   }
+
   return (
 
     <Fragment>
@@ -514,27 +514,27 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                {frase && (
                 <div>
                   <div className="title_holder">
-                    <p><strong>Copia las siguientes palabras para que en un futuro recuperes tu cuenta</strong></p>
-
-                    <div >
-                     
+                    <p className="phrase_caption"><strong>Copia las siguientes palabras para que en un futuro recuperes tu cuenta</strong></p>
+                    <div className="spacer_15"></div>
+                    <div>
                         <p>
-                          <textarea value={frase} readOnly style={textareaStyles} />
+                          <div className="text_phrase"><div className="spacer_10"></div>{frase}<div className="spacer_10"></div></div>
+                          <div className="spacer_10"></div>
                           { window.isSecureContext &&( 
-                              <button onClick={handleCopyClick}>Copiar</button>
+                            <div className="center_button">
+                              <div onClick={handleCopyClick} className="metaportal_fn_button_popup">Copiar</div>
+                            </div>
                           )}
                         </p>
                     </div>
-
                   </div>
                 </div>)
                 }
-              < div >
+              <div>
                 <div className="list_holder">
                   <div>
                     {btnGenVisible && (
                       <ul className="metaportal_fn_items">
-
                         <li>
                           <div className="item">
                             <a href="#"
@@ -639,7 +639,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                           <div className="row">
                             <div className="col-md-3">
                               <label>
-                                Password
+                                Contraseña
                               </label>
                             </div>
 
@@ -664,21 +664,26 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                           </div>
                         </div>
                       )}
+                      <div className="spacer_20"></div>
                       <div className="row">
                         <div className="col-md-12">
-                          <ReCAPTCHA
-                            ref={recaptchaRef}
-                            sitekey="6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss"
-                          />
+                          <div className="captcha">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey="6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss"
+                              theme="dark"
+                            />
+                          </div>
                         </div>
                       </div>
-
+                      <div className="spacer_15"></div>
                       <div className="row">
 
                         <div className="col-md-1">
-                          <button className="btn btn-primary" type="submit">Registrar</button>
+                          <div className="center_button">
+                            <div className="metaportal_fn_button_popup" type="submit">Registrar</div>
+                          </div>
                         </div>
-
                       </div>
 
                     </form>
