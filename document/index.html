@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth">
+  <head>
+    <title>MetaPortal - NFT Portfolio and Landing Page React Nextjs Template  </title>
+
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+    <!-- VENDOR CSS -->
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./assets/vendor/animate-css/vivify.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/light-gallery/css/lightgallery.css"
+    />
+    
+    <!-- JSTree (Folder Stewart) -->
+	<link rel="stylesheet" href="./assets/vendor/jstree/dist/themes/default/style.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./assets/css/site.min.css" />
+
+    <!-- for demo only -->
+    <style>
+      .h2 {
+    color: #5cb65f;
+    font-weight: 400;font-size: 15px;
+    display: block;
+}
+      .img-responsive{
+        max-width: 100%;
+      }
+      .card .body {
+        font-size: 15px;
+      }
+      .main_features li {
+        padding: 5px 0;
+      }
+      .prettyprint {
+        color: #ffffff;
+      }
+      #Credits li {
+        line-height: 30px;
+      }
+      .lightGallery img {
+        border: 1px solid #484a4e;
+      }
+      .sm-logo {
+        width: 25px;
+      }
+      #main-content {
+        padding: 1rem;
+        box-sizing: border-box;
+      }      
+      div#wrapper {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="theme-green font-mulish ">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+      <div class="loader">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+      </div>
+    </div>
+
+  
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <div id="wrapper">
+ 
+
+      <div id="left-sidebar" class="sidebar">
+        <div class="navbar-brand">
+            <!-- <a href="javascript:void(0);">
+                <img src="./assets/logo.png" alt="MetaPortal  Logo" class="img-fluid sm-logo" /><span>MetaPortal </span>
+            </a> -->
+            <a href="javascript:void(0);" class="brand-logo d-flex align-items-center">
+             <!-- <img src="./assets/logo.png" alt="" > -->
+             <!-- <div style="    margin-left: 20px;
+              max-width: 120px;
+              margin-top: 5px;
+              font-size: 38px;
+              color: #000;     font-weight: bold;" class="brand-title">MetaPortal </div>
+            </a> -->
+          <button
+            type="button"
+            class="btn-toggle-offcanvas btn btn-sm float-right"
+          >
+            <i class="lnr lnr-menu fa fa-chevron-circle-left"></i>
+          </button>
+        </div>
+        <div class="sidebar-scroll">
+          <div class="user-account">
+           
+            <div class="dropdown">
+              <span>Welcome,</span>
+              <a
+                ><strong>MetaPortal </strong></a
+              >
+            </div>
+          </div>
+          <nav id="left-sidebar-nav" class="sidebar-nav">
+            <ul id="main-menu" class="metismenu">
+              <li class="active">
+                <a href="#documenter_cover"
+                  ><i class="icon-home"></i><span>Start</span></a
+                >
+              </li>
+              <li>
+                <a href="#features"
+                  ><i class="icon-star"></i><span>Features</span></a
+                >
+              </li>
+              <li>
+                <a href="#react_js"
+                  ><i class="icon-tag"></i><span>React.js</span></a
+                >
+              </li>
+              <li>
+                <a href="#main_content"
+                  ><i class="icon-arrow-right"></i><span>Main Content</span></a
+                >
+              </li>
+                <li>
+                    <a href="#create_page"><i class="icon-plus"></i><span>Create a Page</span></a>
+                </li>
+              <li>
+                <a href="#folder_structure"
+                  ><i class="icon-folder-alt"></i
+                  ><span>Folder Structure</span></a
+                >
+              </li>
+              <li>
+                <a href="#Credits"
+                  ><i class="icon-like"></i><span>Credits</span></a
+                >
+              </li>
+              <li>
+                <a href="#layout"
+                  ><i class="icon-star"></i><span>Layout</span></a
+                >
+              </li>
+              <li>
+                <a href="#mail"
+                  ><i class="icon-star"></i><span>Mail</span></a
+                >
+              </li>
+
+              <li>
+                <a href="#thank_you"
+                  ><i class="icon-heart"></i><span>THANK YOU!</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div id="main-content">
+        <div class="block-header">
+          <div class="row clearfix">
+            <div class="col-md-6 col-sm-12">
+              <h1>Documentation</h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">MetaPortal  </a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Documentation
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-md-6 col-sm-12 text-right hidden-xs">
+             <!--  <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-primary btn-round"
+                title=""
+                >Create Campaign</a
+              > -->
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row clearfix">
+            <div class="col-sm-12">
+              <div class="card" id="documenter_cover">
+                <div class="body">
+                  <h4 class="mb-3">
+                    MetaPortal - NFT Portfolio and Landing Page React Nextjs Template  
+                  </h4>
+                  <p>
+                    MetaPortal  is a one page style personal portfolio template that can be used to build your personal portfolio website. You can choose MetaPortal  to build your online presence. It is very important to have a personal portfolio at current age. In your professional career you must need to have a personal portfolio. MetaPortal  is a great template to build your personal portfolio using MetaPortal .
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card" id="features">
+                <div class="header">
+                  <h2>Main Features</h2>
+                  
+                </div>
+                <div class="body">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+						 <ul class="main_features">
+              <li>Develop with <a href="https://nextjs.org/" target="_blank">NextJs</a></li> 
+               
+           
+           <li>Fully Responsive</li>
+         <li>Ready to used widget</li>
+       
+         
+         <li>Detailed Documentation</li>
+            </ul>
+						</div>
+					</div>
+				</div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="card" id="react_js">
+                <div class="header">
+                  <h2>
+                    React.JS Installation & Setup
+                    <small
+                      >A JavaScript library for building user interfaces.</small
+                    >
+                  </h2>
+                </div>
+                <div class="body">
+                  <p>
+                    <strong>Installing</strong><br />
+                    <p>Make sure if <code>NODEJS</code> is installed on your computer</p>
+                    Run <code>npm install -g create-react-app</code>
+                    command from your teminal to install React Globally.
+                  </p>
+                  <p>
+                    <strong>Install npm :-</strong><br /> Run
+                    <code>npm install</code> command from your project
+                    directory. It will create 'node_module' folder in this all
+                    dependency files will be install with this command.
+                  </p>
+                  <p>
+                    <strong>Run Project :-</strong><br /> Run
+                    <code>npm run dev</code> command from your project directory.
+                    With is command file will be compiled and it will be loaded
+                    on local server `http://localhost:3000`.
+                  </p>
+                  <p>
+                    <strong>Production Build :-</strong><br /> Run
+                    <code>npm run build</code> Builds the app for production to
+                    the `build` folder. It correctly bundles React in production
+                    mode and optimizes the build for the best performance.
+                  </p>
+                  <p>
+                    <strong>Further help :-</strong><br /> To get more help on the
+                    nextjs.js checkout
+                    <a href="https://nextjs.org/">nextjs</a>
+                  </p>
+                  <p>
+                    <strong>Note:</strong> You can learn more in the
+                    <a
+                      href="https://github.com/vercel/next.js"
+                      >Create Next App Documentation</a
+                    >. To learn Next, check out the
+                    <a href="https://nextjs.org/">Next Documentation</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card" id="main_content">
+                <div class="header">
+                  <h2>Main Content</h2>
+                  
+                </div>
+                <h5>_app.js Structure</h5>
+                <div class="body">
+<pre class="prettyprint lang-html linenums">
+import '../styles/globals.css'
+function MyApp({ Component, pageProps }) {
+  return &lt;Component {...pageProps} />
+}
+export default MyApp</pre>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+				<div class="card" id="create_page">
+						<div class="header">
+							<h2>Create a Page<h5>How to create a custom page</h5></h2>
+						</div>
+						<div class="body">
+							<p>1. Create page component <code>pages\MyPage.js</code></p>
+							<pre class="prettyprint lang-html linenums">
+import React from "react";
+
+export function MyPage() {
+  return(
+   &lt;h1&gt;Hello!&lt;/h1&gt;
+  ) 
+} 							
+						</pre>
+					</div>
+				</div>
+			</div>
+            <div class="col-sm-12">
+				<div class="card" id="folder_structure">
+					<div class="header"><h2>Folder Structure</h2>
+						<ul class="header-dropdown dropdown">
+							<li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+							<li class="dropdown">
+								<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="javascript:void(0);">Action</a></li>
+									<li><a href="javascript:void(0);">Another Action</a></li>
+									<li><a href="javascript:void(0);">Something else</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h5>Folder Directories</h5>
+					<div class="body">
+					<!-- Folder Directories -->
+						<section class="app-brief">
+							<div class="left-align">
+								<div class="section-header">
+									<!-- <h2 class="dark-text">Folder Directories - </h2> -->
+								</div>
+								<div id="dz_tree" class="tree-demo">
+									<ul>
+										<li data-jstree='{ "opened" : true }'>public
+											<ul>
+                        
+												<li data-jstree='{ "selected" : false }'>css</li>
+												<li data-jstree='{ "selected" : false }'>demo</li>
+												<li data-jstree='{ "selected" : false }'>fonts</li>
+												<li data-jstree='{ "selected" : false }'>img</li>
+											
+											</ul>
+										</li>	
+										<li data-jstree='{ "opened" : true }'>src
+											<ul>
+												<li data-jstree='{ "selected" : false }'>components
+                          <ul>
+                            <li data-jstree='{ "type" : "file" }'>About.js</li>
+                            <li data-jstree='{ "type" : "file" }'>AnimatedText.js</li>
+                            <li data-jstree='{ "type" : "file" }'>Contact.js</li>
+                            <li data-jstree='{ "type" : "file" }'>Home.js</li>
+                            <li data-jstree='{ "type" : "file" }'>Blog.js</li>
+                            <li data-jstree='{ "type" : "file" }'>BlogPopup.js</li>
+                            <li data-jstree='{ "type" : "file" }'>Work.js</li>
+                            <li data-jstree='{ "type" : "file" }'>WorkSideBar.js</li>
+                           </ul>
+												</li>
+												<li data-jstree='{ "selected" : true }'>layouts
+                          <ul>
+                             <li data-jstree='{ "type" : "file" }'>Header.js</li>
+                             <li data-jstree='{ "type" : "file" }'>Layouts.js</li>
+                             <li data-jstree='{ "type" : "file" }'>MobileHeader.js</li>
+                             <li data-jstree='{ "type" : "file" }'>BackMobile.js</li>
+                             <li data-jstree='{ "type" : "file" }'>PreLoader.js</li>
+                             <li data-jstree='{ "type" : "file" }'>Switcher.js</li>
+                            </ul>
+                        </li>
+											
+                      <li data-jstree='{ "type" : "file" }'>useClickOutside.js</li>
+                      <li data-jstree='{ "type" : "file" }'>useWindowSize.js</li>
+                      </ul>
+                      
+										</li>
+                    <li data-jstree='{ "selected" : false }'>pages
+                      <ul>
+                        <li data-jstree='{ "type" : "file" }'>index.js</li>
+                      </ul>
+                    </li>
+										<li data-jstree='{ "type" : "file" }'>package.json</li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+            
+            
+            <div class="col-sm-12">
+              <div class="card" id="Credits">
+                <div class="header">
+                  <h2>Credits</h2>
+                  
+                </div>
+                <div class="body">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                      <ul>
+                       
+                        <li>
+                         Nextjs
+                          <a
+                            href="https://nextjs.org/"
+                            class="text-warning"
+                            >Click to See</a
+                          >
+                        </li>
+                        <li>
+                          Google fonts are used in the template.
+                          <a
+                            href="https://fonts.google.com/"
+                            class="text-warning"
+                            >Click to see</a
+                          >
+                        </li>
+                        <li>
+                          All Images are used:
+                          <a href="https://www.pexels.com/" class="text-warning"
+                            >Pexels.com</a
+                          >
+                        </li>
+                       
+                        <li>Emailjs
+                          <a href="https://www.emailjs.com/" target="_blank" class="text-warning"
+                            >Click to See</a
+                          >
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <ul>
+                        <li>emailjs-com
+                          <a href="https://www.npmjs.com/package/emailjs-com" target="_blank" class="text-warning"
+                            >Click to See</a
+                          >
+                        </li>
+                      
+                        <li>React bootstrap
+                          <a href="https://react-bootstrap.github.io/" target="_blank" class="text-warning"
+                            >Click to See</a
+                          >
+                        </li>
+                      
+                        <li>react-moving-text
+                          <a href="https://www.npmjs.com/package/react-moving-text" target="_blank" class="text-warning"
+                            >Click to See</a
+                          >
+                        </li>
+                      
+                       
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-12" id="layout">
+                <div class="card" >
+                    <div class="header">
+                        <h2>Layout 
+                            <small>Layout is controlled by settings object LayoutSettings inside src/context/ThemeContext.js</small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <p>
+                            <strong>Layout.js</strong>
+                        </p> 
+<pre>
+  import Head from "next/head";
+  import { Fragment, useContext, useEffect } from "react";
+  import ColorContext from "../context/colorContext";
+  import NavContext from "../context/navContext";
+  import useWindowSize from "../useWindowSize";
+  import BackMobile from "./BackMobile";
+  import Header from "./Header";
+  import Switcher from "./Switcher";
+  
+  const Layouts = ({ children, bodyCls, extraPage, light }) => {
+    useEffect(() => {
+      document.querySelector("body").classList = bodyCls
+        ? bodyCls
+        : "dark fullscreendark";
+    }, []);
+    const { changeMobileMenu, mobileMenu } = useContext(NavContext);
+    const { color } = useContext(ColorContext);
+    const { width } = useWindowSize();
+    useEffect(() => {
+      if (width > 1025) {
+        changeMobileMenu(false);
+      }
+    }, [width]);
+    return (
+      &lt;Fragment>
+        &lt;Head>
+          &lt;link
+            type="text/css"
+            media="all"
+            href={`css/skins/${color}.css`}
+            rel="stylesheet"
+          />{" "}
+        &lt;/Head>
+        &lt;div className="page animated" style={{ animationDuration: "500ms" }}>
+          &lt;Switcher />
+          {/* Header Starts */}
+          {!extraPage && &lt;Header light={light} />}
+          {/* Main Content Starts */}{" "}
+          {extraPage ? (
+            children
+          ) : (
+            &lt;main
+              id="main"
+              className={`${width &lt; 1025 ? (mobileMenu ? "open" : "") : ""}`}
+            >
+              {/* Back To Home Starts [ONLY MOBILE] */}
+              &lt;BackMobile
+                changeMobileMenu={changeMobileMenu}
+                mobileMenu={mobileMenu}
+              />
+              {children}
+            &lt;/main>
+          )}
+        </div>{" "}
+      </Fragment>
+    );
+  };
+  export default Layouts;
+  
+</pre>
+
+                    </div>
+                </div>    
+            </div>            
+            <div class="col-sm-12" id="mail">
+                <div class="card" >
+                  <a class="h2 mt-4" href="https://www.emailjs.com/" target="_blank" rel="noopener noreferrer">1. EmailJs</a>
+                <img class="img-fluid" src="./assets/images/mail/1.png" alt="">
+                <a class="h2 mt-4" href="#" >2.</a>
+                <img class="img-fluid" src="./assets/images/mail/2.png" alt="">
+                <a class="h2 mt-4" href="#" >3. </a>
+                <img class="img-fluid" src="./assets/images/mail/3.png" alt="">
+                <a class="h2 mt-4" href="#" >4. </a>
+                <img class="img-fluid" src="./assets/images/mail/4.png" alt="">      
+                <a href="#" class="h2 mt-4">Video reference </a>
+                <iframe width="100%" height="720" src="https://www.youtube.com/embed/4WFSVE9R3EE" title="REACT JS BEGINNERS EMAILJS INTEGRATION" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          
+                </div>    
+
+            </div>            
+            
+           
+         
+          
+            
+            <div class="col-sm-12">
+              <div class="card" id="thank_you">
+                <div class="header">
+                  <h2>Thank You!</h2>
+                  
+                </div>
+                <div class="body">
+                  <p>
+                    Once again, thank you so much for purchasing this template.
+                    As I said at the beginning, I&#39;d be glad to help you if
+                    you have any questions relating to this template.
+                  </p>
+                  <p>
+                    <strong>REGULAR SUPPORT</strong> : You have in template
+                    support if you face any issue with the usage of it then you
+                    can contact us on below Email ID.
+                  </p>
+                  <p>
+                    <strong>EXTENDED SUPPORT</strong> : Development it is
+                    chargeable according to your requirement. For that you need
+                    to mail us your requirement on below Email ID.
+                  </p>
+                  <p>
+                    <strong>COST OF SERVICE</strong> : Depends on the hours
+                    required. But as you are already using our template we have
+                    discounted rates for our template customer.
+                  </p>
+                  <p>
+                    <strong>EXTENDED LICENSE</strong> : With the Extended
+                    Support we also include Extended License. So you save much
+                    more with your investment than you will with purchasing
+                    Regular License and later buying Extended one + Development
+                    cost.
+                  </p>
+                  <p>
+                    You will get a quick reply from our team and feel free to
+                    contact us. We don’t charge for requirement discussion so
+                    don’t worry.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="./assets/bundles/libscripts.bundle.js"></script>
+    <script src="./assets/bundles/vendorscripts.bundle.js"></script>
+
+    <script src="./assets/bundles/lightgallery.bundle.js"></script>
+    <!-- Light Gallery Plugin Js -->
+
+    <script src="./assets/bundles/mainscripts.bundle.js"></script>
+    
+    <!-- Folder onClick -->
+	<script src="./assets/vendor/jstree/dist/jstree.min.js"></script>
+
+    <!-- <script>
+      <!-- $(".metismenu li").click(function () { -->
+        <!-- var $this = $(this); -->
+        <!-- if (!$this.is("active")) { -->
+          <!-- $(".metismenu li").removeClass("active").removeData("top"); -->
+          <!-- $this.addClass("active").data("top", $this.offset().top); -->
+        <!-- } -->
+      <!-- }); -->
+    </script> -->
+    <script>
+		// prettyPhoto
+		jQuery(document).ready(function(){
+			
+			$(".full-height").css("height", $(window).height());
+			
+			$("#dz_tree").jstree({
+				"core": {
+					"themes": {
+						"responsive": false
+					}
+				},
+				"types": {
+					"default": {
+						"icon": "fa fa-folder"
+					},
+					"file": {
+						"icon": "fa fa-file-text"
+					}
+				},
+				"plugins": ["types"]
+			});
+			$("#dz_tree_1").jstree({
+				"core": {
+					"themes": {
+						"responsive": false
+					}
+				},
+				"types": {
+					"default": {
+						"icon": "fa fa-folder"
+					},
+					"file": {
+						"icon": "fa fa-file-text"
+					}
+				},
+				"plugins": ["types"]
+			});
+		});
+	</script>
+  </body>
+</html>
