@@ -32,8 +32,12 @@ import TwitterLoginButton from "../utils/TwitterLogin";
 //npm uninstall ethers
 //npm i -S ethers@5.7.2
 const Bip39 = require('bip39');
-const CLIENT_ID = '162831488516-io4v72ialp9v348p7ntqnqaijk2i3shd.apps.googleusercontent.com';
-const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
+//const CLIENT_ID = '162831488516-io4v72ialp9v348p7ntqnqaijk2i3shd.apps.googleusercontent.com';
+const CLIENTE_ID ='474668266322-3uvmejp2v2moqdgkq009ebemrffm0ln7.apps.googleusercontent.com';
+//const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
+const KEY_CAPTCHA = '6LemyMknAAAAADJrBxfc7x39_E9RfHfg8JAcnaqY'
+//6LemyMknAAAAAIZT8m7rhMJvUCBXf2PbFSo1ximk
+
 //captcha: 6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss
 //         6LdBR58mAAAAAMxBPDm-yQTK-7g_1LgcaNPMCKtC
 
@@ -418,10 +422,10 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
               <img src={imgLogin} />
             </div>
             {frmGoogle && (
-              <GoogleOAuthProvider clientId="162831488516-io4v72ialp9v348p7ntqnqaijk2i3shd.apps.googleusercontent.com">
+              <GoogleOAuthProvider clientId="474668266322-3uvmejp2v2moqdgkq009ebemrffm0ln7.apps.googleusercontent.com">
                 <GoogleLogin
                   useOneTap
-                  clientId='162831488516-io4v72ialp9v348p7ntqnqaijk2i3shd.apps.googleusercontent.com'
+                  clientId='474668266322-3uvmejp2v2moqdgkq009ebemrffm0ln7.apps.googleusercontent.com'
                   buttonText="Iniciar sesión con Google"
                   onSuccess={onSuccess}
                   onFailure={onFailure}
@@ -670,7 +674,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                           <div className="captcha">
                             <ReCAPTCHA
                               ref={recaptchaRef}
-                              sitekey="6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss"
+                              sitekey="6LemyMknAAAAADJrBxfc7x39_E9RfHfg8JAcnaqY"
                               theme="dark"
                             />
                           </div>
