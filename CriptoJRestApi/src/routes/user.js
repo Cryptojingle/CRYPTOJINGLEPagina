@@ -13,7 +13,7 @@ const RESEND_API_KEY ='re_XvquHURP_7u87RrT9MSbeh8kroYgK3s7Q';
 
 const resend = new Resend(RESEND_API_KEY);
 const url_api = 'http://18.189.33.125/';
-const url_sitio = 'http://3.16.100.189:3000/';
+const url_sitio = 'http://cryptojingle.io/';
 //import { Resend } from 'resend';
 
 //npm install nodemailer
