@@ -60,32 +60,24 @@ const Navigation = ({ navigation, navigationToggle }) => {
                 transform: `translateX(${subMenu !== null ? "-100" : "0"}%)`,
               }}
             >
-              <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSubMenu("home");
-                  }}
-                  className={`${subMenu == "home"}`}
-                >
-                  <span className="creative_link">
-                    Home
-                    <img src="/svg/down.svg" alt="" className="fn__svg" />
-                  </span>
-                </a>
+<li>
+                <Link href="/nft/1">
+                  <a onClick={() => navigationToggle(false)}>
+                    <span className="creative_link">Home</span>
+                  </a>
+                </Link>
               </li>
               <li>
                 <Link href="/nft/1">
                   <a onClick={() => navigationToggle(false)}>
-                    <span className="creative_link">Mint Page</span>
+                    <span className="creative_link">Galery</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/collection">
+                <Link href="/Galery">
                   <a onClick={() => navigationToggle(false)}>
-                    <span className="creative_link">Collection</span>
+                    <span className="creative_link">Get Mixes</span>
                   </a>
                 </Link>
               </li>
@@ -94,12 +86,12 @@ const Navigation = ({ navigation, navigationToggle }) => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    setSubMenu("pages");
+                    setSubMenu("TOOLS");
                   }}
-                  className={`${subMenu == "pages" ? "active" : ""}`}
+                  className={`${subMenu == "TOOLS" ? "active" : ""}`}
                 >
                   <span className="creative_link">
-                    Pages
+                    Tools
                     <img src="/svg/down.svg" alt="" className="fn__svg" />
                   </span>
                 </a>
@@ -112,7 +104,7 @@ const Navigation = ({ navigation, navigationToggle }) => {
                     >
                       <span className="creative_link">
                         <img src="/svg/down.svg" alt="" className="fn__svg" />
-                        Pages
+                        TOOLS
                       </span>
                     </a>
                   </li>
@@ -120,35 +112,35 @@ const Navigation = ({ navigation, navigationToggle }) => {
                   <li>
                     <Link href="/coming-soon">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Coming Soon</span>
+                        <span className="creative_link">Create your Shib (comming soon)</span>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/404">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">404 Page</span>
+                        <span className="creative_link">Vote for best Shib</span>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/protected">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Protected Page</span>
+                        <span className="creative_link">Afinity</span>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/no-results">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Search No Results</span>
+                        <span className="creative_link">Shasino</span>
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/cookies">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Cookies</span>
+                        <span className="creative_link">Artist? Collaborate with us</span>
                       </a>
                     </Link>
                   </li>
@@ -173,14 +165,14 @@ const Navigation = ({ navigation, navigationToggle }) => {
               <li>
                 <Link href="/blog">
                   <a onClick={() => navigationToggle(false)}>
-                    <span className="creative_link">Blog</span>
+                    <span className="creative_link">Licenses and Copyright</span>
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/blog-single">
                   <a onClick={() => navigationToggle(false)}>
-                    <span className="creative_link">Blog Single</span>
+                    <span className="creative_link">Terms &amp; Conditions</span>
                   </a>
                 </Link>
               </li>
