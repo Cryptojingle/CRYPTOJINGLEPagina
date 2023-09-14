@@ -21,29 +21,18 @@ const ComingSoon = () => {
 								It will mean that the time expires after this time, but when the page is refreshed, the value will return again. It means, it won't end.
 						Add boxed class to get #1 type of countdown
 					*/}
-            <h3
-              className="metaportal_fn_countdown boxed"
-              data-type="ever"
-              data-date="October 13, 2022 12:30:00"
-              data-days={34}
-              data-hours={9}
-              data-minutes={20}
-              data-seconds={10}
-            >
-              0d: 0h: 0m: 0s
-            </h3>
           </div>
           <div className="soon_title">
             <h3
               className="fn__maintitle"
-              data-text="Public Minting is Coming Soon"
+              data-text="El creador Shib esta en proceso!"
               data-align="center"
             >
-              Public Minting is Coming Soon
+              El creador Shib esta en proceso!
             </h3>
             <p>
-              Our website is coming soon. We are currently working on our
-              website. Please check again within couple days.
+              Proximamente podras crear tu propio shib y votarlo para que sea parte 
+              de la nueva generación. 
             </p>
           </div>
         </div>

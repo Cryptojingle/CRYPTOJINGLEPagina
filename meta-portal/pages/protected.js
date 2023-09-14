@@ -10,12 +10,12 @@ const Protected = () => {
             </span>
             <h3
               className="fn__maintitle"
-              data-text="Protected Page"
+              data-text="Eres un jingler?"
               data-align="center"
             >
-              Protected Page
+              Eres un jingler? 
             </h3>
-            <p>Please, enter the password to have access to this page.</p>
+            <p>Usa tu shib para identificar tu nivel y poder ingresar!</p>
             <div className="container-custom">
               <form>
                 <input name="post_password" type="password" />

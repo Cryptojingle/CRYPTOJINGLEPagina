@@ -442,17 +442,22 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
             </div>
             {frmMeta && (
 
-              <div>
-                <span> <strong>Address: </strong>
-                  {data.address}
-                </span>
+              <div className="vertical-absolute">
+          <div className="vertical-absolute__content"> 
+                <ul className="metaportal_fn_items">
+                        <li>
+                          <div className="item">
+                            <a href="#"
+                              onClick={() => btnhandler()}
+                            >
+                            </a>
 
-                <span>
-                  <strong>Balance: </strong>
-                  {data.Balance}
-                </span>
-                <button onClick={btnhandler}>Connect to wallet</button>
+                            <span className="text">Wallet</span>
+                          </div>
+                        </li>
 
+                      </ul>
+              </div>
               </div>
 
 
@@ -462,11 +467,16 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
             <div className="walletbox">
 
               <div className="title_holder">
-                <h3>let`&apos;`s play</h3>
+                <h2 className="phrase_caption">LET'S PLAY</h2>
                 <p>
-                  Enter the way that works best for you, we are waiting for you!
+                  Enter the way that works best for you! 
+                </p>
+                <p>
+                WE ARE WAITING FOR YOU!
                 </p>
               </div>
+              <br>
+            </br>
               <div className="list_holder">
                 <ul className="metaportal_fn_items">
                   <li>
@@ -491,7 +501,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                     <div className="item">
                       <a href="#" onClick={() => handleGoogleIDClick()} />
                       <span className="icon">
-                        <img src="/img/wallet/walletconnect.png" alt="" />
+                        <img src="/img/wallet/google.png" alt="" />
                       </span>
                       <span className="text">Google</span>
                     </div>
@@ -501,7 +511,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                       <a href="#" onClick={() => handleMetaIDClick()} />
 
                       <span className="icon">
-                        <img src="/img/wallet/venly.png" alt="" />
+                        <img src="/img/wallet/metamask.png" alt="" />
                       </span>
                       <span className="text">Wallet Connect</span>
                     </div>

@@ -61,21 +61,21 @@ const Navigation = ({ navigation, navigationToggle }) => {
               }}
             >
 <li>
-                <Link href="/nft/1">
+                <Link href="/#home">
                   <a onClick={() => navigationToggle(false)}>
                     <span className="creative_link">Home</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/nft/1">
+                <Link href="/collection">
                   <a onClick={() => navigationToggle(false)}>
                     <span className="creative_link">Galery</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/Galery">
+                <Link href="/nft/1">
                   <a onClick={() => navigationToggle(false)}>
                     <span className="creative_link">Get Mixes</span>
                   </a>
@@ -119,7 +119,8 @@ const Navigation = ({ navigation, navigationToggle }) => {
                   <li>
                     <Link href="/404">
                       <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Vote for best Shib</span>
+                        <span className="creative_link">Vote for the best Shib
+                        </span>
                       </a>
                     </Link>
                   </li>
@@ -131,46 +132,30 @@ const Navigation = ({ navigation, navigationToggle }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/no-results">
+                    <Link href="/protected">
                       <a onClick={() => navigationToggle(false)}>
                         <span className="creative_link">Shasino</span>
                       </a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/cookies">
+                    <Link href="/coming-soon">
                       <a onClick={() => navigationToggle(false)}>
                         <span className="creative_link">Artist? Collaborate with us</span>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/policy">
-                      <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">Privacy Policy</span>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/terms-conditions">
-                      <a onClick={() => navigationToggle(false)}>
-                        <span className="creative_link">
-                          Terms &amp; Conditions
-                        </span>
                       </a>
                     </Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link href="/blog">
+                <Link href="/policy">
                   <a onClick={() => navigationToggle(false)}>
                     <span className="creative_link">Licenses and Copyright</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href="/blog-single">
+                <Link href="/terms-conditions">
                   <a onClick={() => navigationToggle(false)}>
                     <span className="creative_link">Terms &amp; Conditions</span>
                   </a>
@@ -181,20 +166,20 @@ const Navigation = ({ navigation, navigationToggle }) => {
           <div className="info_holder">
             <div className="copyright">
               <p>
-                Copyright 2022 - Designed &amp; Developed by{" "}
+                Copyright 2023 - Designed &amp; Developed by{" "}
                 <a
-                  href="https://themeforest.net/user/codeefly/portfolio"
+                  href="https://cryptojingle.io"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  CodeeFly
+                  Cryptojingle
                 </a>
               </p>
             </div>
             <div className="social_icons">
               <ul>
                 <li>
-                  <a href="#">
+                  <a href="https://twitter.com/CryptoJinglers">
                     <img
                       src="/svg/social/twitter-1.svg"
                       alt=""
@@ -203,7 +188,7 @@ const Navigation = ({ navigation, navigationToggle }) => {
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://www.facebook.com/profile.php?id=100078785749852">
                     <img
                       src="/svg/social/facebook-1.svg"
                       alt=""
@@ -212,27 +197,9 @@ const Navigation = ({ navigation, navigationToggle }) => {
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://instagram.com/cryptojinglers?igshid=OGQ5ZDc2ODk2ZA==">
                     <img
                       src="/svg/social/instagram-1.svg"
-                      alt=""
-                      className="fn__svg"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <img
-                      src="/svg/social/pinterest-1.svg"
-                      alt=""
-                      className="fn__svg"
-                    />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <img
-                      src="/svg/social/behance-1.svg"
                       alt=""
                       className="fn__svg"
                     />
