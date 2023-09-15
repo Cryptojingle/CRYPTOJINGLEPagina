@@ -71,6 +71,18 @@ const Header = ({ walletToggle, navigationToggle }) => {
               <span>SIGN IN</span>
             </a>
           </div>
+          <div className="wallet" hidden='hidden'>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                walletToggle(true);
+              }}
+              className="metaportal_fn_button wallet_opener"
+            >
+              <span>CUENTA</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>

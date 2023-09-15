@@ -9,46 +9,9 @@ import decodeJwt from "../utils/decodeJwt";
 import { ethers } from "ethers";
 import HDWalletProvider from '@truffle/hdwallet-provider';
 
-import TwitterLogin from 'react-twitter-login';
-import TwitterLoginButton from "../utils/TwitterLogin";
-// import { MetaMaskProvider } from "metamask-react";
-// import { MetaMaskSDK } from '@metamask/sdk';
-//npm install @react-oauth/google
-//import { GoogleLogin } from 'react-google-login';
-//npm install google-auth-library --save --force
-//npm i react-twitter-login --force
-//npm install react-google-login
-//npm install metamask-react --force
-//
-//twitter
-//bearer token
-//AAAAAAAAAAAAAAAAAAAAAIs1oQEAAAAAVvpkpEHrU8cocsfnaLtz1Chfz%2FQ%3DaaA2VRtNoZ7rCMF1cZb4VuljlhcUSvvdrZUnAjsNbGcwxyeDJj
-
-//access token
-//1670996871802761216-nIJ7l2RkedcbcbDrHcgWVYeGXBdsfH
-//secret token
-//oDIZ2KYpzTIZOoHxZkiEhvoRiS08xbzZkN186s7XJ3fpo
-//npm i @truffle/hdwallet-provider@next
-//npm uninstall ethers
-//npm i -S ethers@5.7.2
 const Bip39 = require('bip39');
 const CLIENT_ID = '162831488516-io4v72ialp9v348p7ntqnqaijk2i3shd.apps.googleusercontent.com';
 const KEY_CAPTCHA = '6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss';
-//captcha: 6LdBR58mAAAAAB8HaSEfrxLTvs_QUU0n40tEajss
-//         6LdBR58mAAAAAMxBPDm-yQTK-7g_1LgcaNPMCKtC
-
-
-
-// useEffect (() =>{
-//   const start = () => {
-//     gapi.auth2.init({
-//       clientId : CLIENT_ID
-//     })
-//   }
-//   gapi.load("client:auth2", start)
-// },[]);
-//npm install react-google-recaptcha --force
-
 const WalletPopUp = ({ walletToggle, wallet }) => {
   const API_URL = 'http://18.189.33.125/';
   //const API_URL = 'http://ec2-52-14-120-83.us-east-2.compute.amazonaws.com';
@@ -60,6 +23,11 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   const [btnGenVisible, setbtnGenVisible] = useState(true);
   const [frmVisible, setfrmVisible] = useState(false);
   const [frmMedias, setfrmMedias] = useState(true);
+  const [frmAccount, setfrmAccount] = useState(false);
+  const [menuSettings, setmenuSettings] = useState(false);
+  const [menuVault, setmenuVault] = useState(false);
+  const [menuAccount, setmenuAccount] = useState(false)
+  const [menuSecurity, setmenuSecurity] = useState(false);
   const [frmJingler, setfrmJingler] = useState(false);
   const [frmGoogle, setfrmGoogle] = useState(false);
   const [frmMeta, setfrmMeta] = useState(false);
@@ -199,6 +167,48 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
     setfrmJingler(true);
     setbtnGenVisible(true);
   };
+
+  const handleJinglerAccount = () => {
+    setfrmAccount(true);
+    setfrmMedias(false);
+    setfrmJingler(false);
+    setbtnGenVisible(false);
+    salir(false)
+    setfrmMedias(false);
+    const element = document.getElementsByClassName("metaportal_fn_walletbox")
+    element[0].style.padding = "0px 0px"
+  }
+
+  const handlemenuAccount = () => {
+    if(menuAccount==true){
+      setmenuAccount(false);
+    }else{
+      setmenuAccount(true);
+    }
+  }
+
+  const handlemenuSecurity = () => {
+    if(menuAccount==true){
+      setmenuSecurity(false);
+    }else{
+      setmenuSecurity(true);
+    }
+  }
+
+  const handlemenuSettings = () => {
+    if(menuSettings==true){
+      setmenuSettings(false);
+    }else{
+      setmenuSettings(true);
+    }
+  }
+  const handlemenuVault = () => {
+    if(menuVault==true){
+      setmenuVault(false);
+    }else{
+      setmenuVault(true);
+    }
+  }
 
   const handleGoogleIDClick = () => {
     setTipoLogin('GOOGLEID');
@@ -388,7 +398,10 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
       tipo: '',
       password: ''
     });
-    setfrmMedias(true);
+    if(frmAccount==false){
+      setfrmMedias(true);
+    }
+
     setfrmJingler(false);
     setFrase("");
     setbtnGenVisible(false);
@@ -401,9 +414,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   }
 
   return (
-
     <Fragment>
-
       <div
         className={`metaportal_fn_wallet_closer ${wallet ? "active" : ""}`}
         onClick={() => salir(false)}
@@ -428,32 +439,84 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                   cookiePolicy={'single_host_origin'}
                 />
               </GoogleOAuthProvider>
-
             )}
           </div>
-
           <div className="btn">
             <div>
               {/* <img src={imgLogin} />*/}
             </div>
             {frmMeta && (
-
               <div>
                 <span> <strong>Address: </strong>
                   {data.address}
                 </span>
-
                 <span>
                   <strong>Balance: </strong>
                   {data.Balance}
                 </span>
                 <button onClick={btnhandler}>Connect to wallet</button>
-
               </div>
-
-
             )}
           </div>
+          {frmAccount && (
+            <div>
+              <div className="topbarAccount">
+                <div className="container_top"></div>
+                <div className="divider_top">
+                </div>
+              </div>
+              <div className="paddingFrame">
+                <div type="submit" onClick={() => handlemenuAccount()}  className="menu_hamburger">
+                  <div className="title_menu">Cuenta</div>
+                </div>
+                <hr className="divider"></hr>
+                {menuAccount && (
+                  <div className="menu_content">
+                    <div className="menu_item"><label className="itemText">Editar cuenta</label></div>
+
+                  </div>
+                )}
+                <div  type="submit" onClick={() => handlemenuSecurity()}  className="menu_hamburger">
+                  <div className="title_menu">Seguridad</div>
+                </div>
+                <hr className="divider"></hr>
+                {menuSecurity && (
+                  <div className="menu_content">
+                    <div className="menu_item"><label className="itemText">Cambiar contraseña</label></div>
+                    <div className="menu_item"><label className="itemText">Recuperar clave semilla</label></div>
+                  </div>
+                )}
+                <div  type="submit" onClick={() => handlemenuVault()}  className="menu_hamburger">
+                  <div className="title_menu">Vault</div>
+                </div>
+                <hr className="divider"></hr>
+                {menuVault && (
+                  <div className="menu_content">
+                    <div className="menu_item"><label className="itemText">Mixes</label></div>
+                    <div className="menu_item"><label className="itemText">Jingles</label></div>
+                    <div className="menu_item"><label className="itemText">Avatar</label></div>
+                    <div className="menu_item"><label className="itemText">Derechos</label></div>
+                    <div className="menu_item"><label className="itemText">Para que sirve</label></div>
+                    <div className="menu_item"><label className="itemText">Que sigue</label></div>
+                  </div>
+                )}
+                <div type="submit" onClick={() => handlemenuSettings()}  className="menu_hamburger">
+                  <div className="title_menu">Configuracion</div>
+                </div>
+                <hr className="divider"></hr>
+                {menuSettings && (
+                  <div className="menu_content">
+                    <div className="menu_item"><label className="itemText">Seguridad</label></div>
+                    <div className="menu_item"><label className="itemText">Avatar</label></div>
+                    <div className="menu_item"><label className="itemText">Perfil</label></div>
+                    <div className="menu_item"><label className="itemText">Idioma</label></div>
+                    <div className="menu_item"><label className="itemText">Cerrar Sesión</label></div>
+                  </div>
+                )}
+              </div>
+              
+            </div>
+          )}
           {frmMedias && (
             <div className="walletbox">
 
@@ -507,7 +570,6 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
             </div>
           )}
         </div>
-
         <div>
           {frmJingler && (
             <div className="walletbox">
@@ -538,15 +600,11 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                         <li>
                           <div className="item">
                             <a href="#"
-                              onClick={() => handleClick()}
-                            >
+                              onClick={() => handleClick()}>
                             </a>
-
                             <span className="text">Generar</span>
-
                           </div>
                         </li>
-
                       </ul>
                     )}
                   </div>
@@ -554,20 +612,15 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                 <div>
                   {frmVisible && (
                     <form onSubmit={handleSubmit}>
-
                       <div className="row">
                         <div className="col-md-3">
                           <label>
                             Id
                           </label>
                         </div>
-
                       </div>
-
                       <div className="row">
-
                         <div className="col-md-3">
-
                           <input
                             type="text"
                             name="id"
@@ -577,36 +630,26 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                             onBlur={validarUsuario}
                             onChange={handleChange}
                           />
-
                         </div>
                       </div>
                       {!(frmMeta) && (
                         <div>
-
-
                           <div className="row">
                             <div className="col-md-3">
                               <label>
                                 Nombre
                               </label>
                             </div>
-
                           </div>
-
-
                           <div className="row">
-
                             <div className="col-md-3">
-
                               <input
                                 type="text"
                                 name="name"
                                 className="form-control"
                                 value={formData.name}
                                 onChange={handleChange}
-
                               />
-
                             </div>
                           </div>
 
@@ -681,7 +724,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
 
                         <div className="col-md-1">
                           <div className="center_button">
-                            <div className="metaportal_fn_button_popup" type="submit">Registrar</div>
+                            <div className="metaportal_fn_button_popup" type="submit" onClick={() => handleJinglerAccount()}>Registrar</div>
                           </div>
                         </div>
                       </div>

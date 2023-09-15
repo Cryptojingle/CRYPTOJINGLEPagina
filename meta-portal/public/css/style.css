@@ -6600,11 +6600,95 @@ a.metaportal_fn_videobutton:hover .fn__svg,
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	animation: shine 1s linear infinite;
-
 }
 
 @keyframes shine {
 	to {
 	background-position: 200% center;
 	}
+}
+
+.menu_hamburger{
+	display: flex;
+	align-items: center;
+    width: 100%;
+    height: 50px;
+	margin-left: auto; 
+	margin-right: 0;
+}
+.menu_hamburger:hover{
+	background-color: rgb(38, 25, 41) ;
+}
+
+.title_menu{
+	margin-left: 10px;
+	color: white;
+}
+
+.divider{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0px;
+	background: linear-gradient(-45deg, var(--mc1), var(--mc2), var(--mc1), var(--mc2));
+	background-size: 400% 400%;
+	animation: gradient_anim 5s ease infinite;
+	height: 2px;
+}
+
+.divider_top{
+	z-index: -1;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0px;
+	margin-top: -20px;
+	background: linear-gradient(-45deg, var(--mc1), var(--mc2), var(--mc1), var(--mc2));
+	background-size: 400% 400%;
+	animation: gradient_anim 5s ease infinite;
+	height: 5px;
+	filter:blur(5px)
+}
+
+@keyframes gradient_anim {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.container_top{
+	z-index: 100;
+	background-color: #130f15;
+	width: 100%;
+	height: 60px;
+	margin-bottom: -20px;
+}
+.menu_item{
+	margin-left: 0px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+.menu_item:hover{
+	background-color: rgb(38, 25, 41) ;
+}
+.itemText{
+	margin-left: 20px;
+}
+
+.topbarAccount{
+	background-color: #130f15;
+	width: 100%;
+	height: 40px;
+	animation: gradient_anim 5s ease infinite;
+}
+
+.paddingFrame{
+	padding: 40px 40px;
 }
